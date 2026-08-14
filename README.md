@@ -1,13 +1,10 @@
 # PokéBot NDS
 <img src='https://i.imgur.com/lHaYC4z.png' width='600px'>
 
-This repository is dedicated to creating a multi-purpose automated tool for the mainline DS Pokémon games. The bot can perform most monotonous tasks in these games, with all languages supported.
+End of life of the Pokebot NDS Update :
+Due to life things and Game Freak announcing they are shutting down Pokemon Bank. I no longer am going to continue fixing and updating this program. Feel free to do what you wish with this program, just give me and the original programmer credit where due. Thank you for all the support and understanding.
 
-Reported [Issues](https://github.com/wyanido/pokebot-nds/issues) and donations are very appreciated, as making this project widely compatible as the sole developer takes a lot of time and work.
-
-This is being patched as I go. Do not be afraid to drop into the discord and ask questions. Be patient as this is my first time coding lua files.
-
-Note: Not all things have been personally tested by me and may not work. 
+This repository is dedicated to creating a multi-purpose automated tool for the mainline DS Pokémon games.
 
 ## Getting Started
 #### Prerequisites
