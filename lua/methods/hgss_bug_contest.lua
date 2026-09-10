@@ -139,10 +139,10 @@ end
 --- active when started. The game remains the source of truth for timer,
 --- Sport Ball count, keep/swap, and judging transitions.
 function mode_bug_contest()
-    if not game_state.in_game then
+    if not game_state or not game_state.in_game then
         print("Waiting to reach the overworld...")
 
-        while not game_state.in_game do
+        while not game_state or not game_state.in_game do
             process_frame()
         end
     end
