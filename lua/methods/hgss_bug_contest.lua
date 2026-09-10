@@ -28,12 +28,20 @@ local function catch_bug_contest_pokemon()
         -- HGSS maps BAG input to the contest Sport Ball throw command when
         -- BATTLE_TYPE_BUG_CONTEST is active.
         touch_screen_at(38, 174)
-        wait_frames(30)
 
         -- Safety guard: outside the contest this input opens the regular Bag.
-        -- Stop rather than navigating/using a normal Poke Ball by mistake.
-        if game_state.in_battle and get_battle_state() == "Bag" then
-            abort("Bug-Catching Contest mode is not active in-game. Enter the contest before starting this bot mode.")
+        -- Watch a timing window rather than checking one fixed frame so slower
+        -- transitions cannot make the bot miss the normal Bag screen.
+        for _ = 1, 90 do
+            if not game_state.in_battle then
+                break
+            end
+
+            if get_battle_state() == "Bag" then
+                abort("Bug-Catching Contest mode is not active in-game. Enter the contest before starting this bot mode.")
+            end
+
+            wait_frames(1)
         end
 
         -- Wait for either a failed catch (battle menu returns) or for the
