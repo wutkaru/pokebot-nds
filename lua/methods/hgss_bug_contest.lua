@@ -53,10 +53,9 @@ local function catch_bug_contest_pokemon()
         end
     end
 
-    -- A successful contest catch opens a separate swap/keep flow after the
-    -- battle. Stop here so the user can verify the result and finish the
-    -- contest safely. This also handles the out-of-Sport-Balls path without
-    -- falsely claiming the target was caught.
+    -- The game owns the contest lifecycle after battle: a successful catch
+    -- enters the keep/swap flow, and reaching zero Sport Balls transitions to
+    -- the built-in judging scripts. Stop here instead of duplicating either.
     abort("Bug-Catching Contest target battle ended. Verify the caught Pokemon and finish the contest manually.")
 end
 
