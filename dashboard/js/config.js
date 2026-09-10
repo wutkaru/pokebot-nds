@@ -3,6 +3,15 @@ const textAreas  = [...configForm.getElementsByTagName('textarea')].map(ele => e
 const fields     = [...configForm.querySelectorAll('input, select')].map(ele => ele.id);
 const checkboxes = [...configForm.querySelectorAll('input[type="checkbox"]')].map(ele => ele.id);
 
+const modeSelect = document.getElementById('mode');
+if (modeSelect && !modeSelect.querySelector('option[value="bug_contest"]')) {
+    const standardGroup = [...modeSelect.querySelectorAll('optgroup')].find(group => group.label === 'Standard');
+    const option = document.createElement('option');
+    option.value = 'bug_contest';
+    option.textContent = 'Bug-Catching Contest (HGSS)';
+    (standardGroup || modeSelect).appendChild(option);
+}
+
 let config;
 let loadedPrimoPhrases = false;
 
@@ -78,6 +87,9 @@ function updateOptionVisibility() {
             $('#option_starters').show();
             break;
         case 'random_encounters':
+            $('#option_moving_encounters').show();
+            break;
+        case 'bug_contest':
             $('#option_moving_encounters').show();
             break;
         case 'random_encounters_small':

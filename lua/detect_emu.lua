@@ -128,6 +128,7 @@ if _ROM.gen == 4 then
     if _ROM.version == "HG" or _ROM.version == "SS" then
         dofile("lua\\data\\maps\\hgss.lua")
         dofile("lua\\methods\\hgss.lua")
+        dofile("lua\\methods\\hgss_bug_contest.lua")
     else
         dofile("lua\\data\\maps\\gen_iv.lua")
         

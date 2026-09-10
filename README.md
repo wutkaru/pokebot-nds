@@ -32,6 +32,7 @@ The game will then be connected to the dashboard, which you can view info for on
 |--						| :-: | :-: | :-: | :-: |
 | Starter resets 		| ✅ | ✅ | ✅ | ✅ |
 | Random encounters		| ✅ | ✅ | ✅ | ✅ |
+| Bug-Catching Contest	|  | 🧪 |  |  |
 | Phenomenon encounters		|  |  | ✅ | ✅ |
 | Gift resets 			| ✅ | ✅ | ✅ | ✅ |
 | Static encounters 	| ✅ | ✅ | ✅ | ✅ |
@@ -40,6 +41,26 @@ The game will then be connected to the dashboard, which you can view info for on
 | Headbutt Trees 		|  | ✅ |  |  |
 | Thundurus/Tornadus dex resets 			|  |  | ✅ |  |
 | Hidden Grottos 	|  |  |  | ✅ |
+
+### HGSS Bug-Catching Contest (experimental)
+
+The `bug_contest` mode reuses the normal Gen IV random-encounter and target-matching logic, but uses the HGSS Bug-Catching Contest's built-in Sport Ball throw action instead of the normal Poké Ball pocket.
+
+Before starting the script:
+
+1. Enter the Bug-Catching Contest normally and reach the National Park contest area.
+2. Set `mode` to `bug_contest` in your config.
+3. Configure target rules as usual. Shiny Override can be used for shiny hunting.
+4. Enable Auto Catch if the bot should throw Sport Balls at a matched target.
+5. Start `pokebot-nds.lua`.
+
+The bot will flee non-target encounters. When a target is found, it can reuse the normal subdue settings and then repeatedly throw Sport Balls. After the target battle ends, the script stops before the contest's post-catch keep/swap flow so that the result can be verified manually.
+
+Safety behavior:
+
+- The mode refuses to start outside National Park.
+- If selecting BAG opens the normal Bag instead of immediately throwing a contest Sport Ball, the script stops rather than using a normal Poké Ball.
+- The current implementation does not automate the contest timer, judging, or the caught-Pokémon keep/swap screen.
 
 #### Additional Features
 |  						| DPPt | HGSS | BW | B2W2 | 
